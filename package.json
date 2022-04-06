@@ -1,17 +1,28 @@
 {
-  "name": "simple_nps_api",
+  "name": "simple-nps-api",
   "version": "1.0.0",
-  "description": "",
+  "description": "Projeto Simple NPS - Cálculo de NPS",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
-  "keywords": [],
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GustavoGontijoAntunes/simple-nps-api.git"
+  },
+  "author": "Gustavo Gontijo Antunes",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GustavoGontijoAntunes/simple-nps-api/issues"
+  },
+  "homepage": "https://github.com/GustavoGontijoAntunes/simple-nps-api#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
     "express": "^4.17.3",
-    "nodemon": "^2.0.15"
+    "jsonwebtoken": "^8.5.1",
+    "knex": "^1.0.4",
+    "pg": "^8.7.3"
   }
 }

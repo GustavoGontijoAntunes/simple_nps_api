@@ -1,20 +1,24 @@
-const express = require ('express')
-const app = express()
+require('dotenv').config();
 
-app.use(express.urlencoded({ extended: true }))
-app.use(express.json())
+const express = require('express');
+const app = express();
 
-app.use((req, res, next) => {
-    let data_req = new Date()
-    console.log(`${data_req.toLocaleTimeString()} - ${req.path}`)
-    next()
-})
+const port = process.env.PORT || 3000;
 
-app.use('/', (req, res, next) => {
-    res.send('Olá Mundo Simple NPS!')
-})
+const userRoutes = require('./routes/user.js');
+/*const surveyRoutes = require('./routes/survey.js');
+const answerRoutes = require('./routes/answer.js');*/
 
-const PORTA = process.env.PORT || 3000
-app.listen(PORTA, () => {
-    console.log(`Servidor rodando em http://localhost:${PORTA}`)
-})
+app.use(express.json());
+
+app.use('/security', userRoutes);
+/*app.use('/surveys', surveyRoutes);
+app.use('/answers', answerRoutes);*/
+
+app.get('/', (req, res) => {
+    res.send('Bem-vindo à página inicial do Simple NPS!');
+});
+
+app.listen(port, () => {
+    console.info(`Servidor rodando em http://localhost:${port}`);
+});
