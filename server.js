@@ -6,14 +6,14 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 const userRoutes = require('./routes/user.js');
-/*const surveyRoutes = require('./routes/survey.js');
-const answerRoutes = require('./routes/answer.js');*/
+const surveyRoutes = require('./routes/survey.js');
+const answerRoutes = require('./routes/answer.js');
 
 app.use(express.json());
 
 app.use('/security', userRoutes);
-/*app.use('/surveys', surveyRoutes);
-app.use('/answers', answerRoutes);*/
+app.use('/survey', surveyRoutes);
+app.use('/answer', answerRoutes);
 
 app.get('/', (req, res) => {
     res.send('Bem-vindo à página inicial do Simple NPS!');
